@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Delete</title>
+</head>
+<body>
+    <h2>Confirm Deletion</h2>
+    <p>Are you sure you want to delete <strong>{{ student.fullname }}</strong> (Roll Number: {{ student.roll_number }})?</p>
+    <form method="POST" action="{% url 'delete_student' student.roll_number %}">
+        {% csrf_token %}
+        <button type="submit" style="background-color: red; color: white;">Yes, Delete</button>
+        <a href="/show_students" style="text-decoration: none;">Cancel</a>
+    </form>
+</body>
+</html>
